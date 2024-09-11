@@ -8,30 +8,36 @@ namespace SY22_PRRPRR02_08_Generiska_Statiska {
 	internal class Program {
 		static void Main(string[] args) {
 
-			// Console.WriteLine(MathUtilities.Add(4, 5));
+			StringPrinter printer = new StringPrinter();
 
-			Biscuit biscuit0 = new Biscuit(10, "umami");
-			Biscuit biscuit1 = new Biscuit(7, "salt");
-			Biscuit biscuit2 = new Biscuit(9.23, "sur");
+			printer.PrintString("Hej");
+			printer.PrintString("Tjena");
+			printer.PrintString("Daniel har planeringstid");
+			printer.PrintString("Hallå");
 
-			Console.WriteLine("Total bites taken: " + Biscuit.TotalBitesTaken);
-			Console.WriteLine("0. Bites taken: " + biscuit0.BitesTaken);
-			Console.WriteLine("1. Bites taken: " + biscuit1.BitesTaken);
-			Console.WriteLine("2. Bites taken: " + biscuit2.BitesTaken);
 
-			for (int i = 0; i < 10; i++) {
-				biscuit0.TakeABite();
-			}
-			biscuit1.TakeABite();
-			biscuit1.TakeABite();
-			biscuit1.TakeABite();
-			biscuit2.TakeABite();
 
-			Console.WriteLine("Total bites taken: " + Biscuit.TotalBitesTaken);
-			Console.WriteLine("0. Bites taken: " + biscuit0.BitesTaken);
-			Console.WriteLine("1. Bites taken: " + biscuit1.BitesTaken);
-			Console.WriteLine("2. Bites taken: " + biscuit2.BitesTaken);
+			Console.WriteLine(printer.GetLastPrinted());
 
+
+			IntPrinter intPrinter = new IntPrinter();
+			intPrinter.PrintInt(0);
+			intPrinter.PrintInt(1);
+			intPrinter.PrintInt(2);
+			intPrinter.PrintInt(3);
+
+			Console.WriteLine(intPrinter.GetLastPrinted());
+
+			Printer<double> doublePrinter = new Printer<double>();
+
+			doublePrinter.Print(3.0);
+			doublePrinter.Print(3.0);
+			doublePrinter.Print(3.0);
+
+			Console.WriteLine(doublePrinter.GetLastPrinted());
+
+			List<int> intList = new List<int>();
+			intList.Add(3);
 		}
 	}
 }
